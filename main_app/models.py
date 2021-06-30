@@ -37,6 +37,7 @@ class Post(Model):
 #one post to one location. One location can have many posts 
 class Location(Model):
     name = models.CharField(max_length = 100)
+    state = models.CharField(max_length=2)
     image = models.CharField(max_length=1000, default="https://www.pngarea.com/pngm/0/4941568_location-icon-png-location-logo-png-hd-hd.png")
     posts = models.ForeignKey(Post, on_delete = models.CASCADE, null=True, blank=True, related_name="post_location") 
 
