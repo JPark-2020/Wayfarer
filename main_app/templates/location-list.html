@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul>
+    {%for location in all_locations%}
+    <li><a href="{%url 'location_detail_page' location.pk%}">{{location.name}}</a></li>
+    {%endfor%}
+</ul>
+{% endblock %}

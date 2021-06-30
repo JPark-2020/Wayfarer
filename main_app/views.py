@@ -4,6 +4,7 @@ from django.views.generic.base import TemplateView
 from django.views import View
 from .models import Profile, Location, Post  
 from django.contrib.auth.forms import UserCreationForm 
+from django.views.generic.detail import DetailView
 
 class Home(TemplateView):
     template_name = "home.html"
@@ -30,3 +31,13 @@ class SignUp(View):
             return redirect('/portfolio')
         else:
             return redirect("/")
+
+class LocationList(View):
+    def get(self, request):
+        all_locations = Location.objects.all()
+        context = {"all_locations":all_locations}
+        return render(request, "location-list.html", context)
+
+class LocationDetail(DetailView):
+    def get(self, request):
+        return render(request, "location-detail.html")
