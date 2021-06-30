@@ -38,10 +38,18 @@ class LocationList(View):
         context = {"all_locations":all_locations}
         return render(request, "location-list.html", context)
 
-class LocationDetail(DetailView):
-    model = Location 
-    template_name = "location-detail.html"
+# class LocationDetail(DetailView):
+#     model = Location 
+#     template_name = "location-detail.html"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context 
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         found_location = Location.objects.get(name = locationname)
+#         context['locationname'] = found_location 
+#         return context 
+
+class LocationDetail(View):
+    def get(self, request, locationname):
+        found_location = Location.objects.get(name = locationname)
+        context = {"found_location": found_location}
+        return render(request, 'location-detail.html', context)
