@@ -1,15 +1,9 @@
 from django.db import models
 from django.db.models import Model
 from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError 
 
 
 
-def validate_post_title(post):
-    if not post.title.length:
-        raise ValidationError("Please enter a title")
-    else:
-        return post 
 
 
 #One user has one profile. One profile has one user. 
@@ -27,8 +21,8 @@ class Profile(Model):
 
 class Post(Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="posts")
-    title = models.CharField(validators = [validate_post_title], max_length = 30)
-    content = models.CharField(max_length = 300)
+    title = models.CharField(max_length = 30)
+    content = models.CharField(max_length=300)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -37,10 +31,12 @@ class Post(Model):
 #one post to one location. One location can have many posts 
 class Location(Model):
     name = models.CharField(max_length = 100)
-    state = models.CharField(max_length=2)
+    state = models.CharField(max_length=4)
     image = models.CharField(max_length=1000, default="https://www.pngarea.com/pngm/0/4941568_location-icon-png-location-logo-png-hd-hd.png")
     posts = models.ForeignKey(Post, on_delete = models.CASCADE, null=True, blank=True, related_name="post_location") 
 
     def __str__(self):
-        return self.name 
+        return f'{self.name}, {self.state}' 
 
+    class Meta:
+        ordering = ['state']

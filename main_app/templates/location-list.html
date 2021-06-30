@@ -4,7 +4,6 @@
 <ul>
     {%for location in all_locations%}
     <li><a href="{% url 'location_detail_page' location.name %}">{{location.name}}</a></li>
-    <li>HI</li>
     {%endfor%}
 </ul>
 {% endblock %}

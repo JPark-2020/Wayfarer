@@ -4,8 +4,7 @@ from django.views.generic.base import TemplateView
 from django.views import View
 from .models import Profile, Location, Post  
 from django.contrib.auth.forms import UserCreationForm 
-from django.views.generic.detail import DetailView
-from .forms import ProfileUpdate 
+from .forms import ProfileUpdate, PostCreate  
 
 class Home(TemplateView):
     template_name = "home.html"
@@ -19,7 +18,7 @@ class ProfilePage(View):
         context = {"user_profile": user_profile, "form": form}
         return render(request, "profile.html", context)
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
         current_user = request.user
         user_profile = Profile.objects.get(user_id = current_user)
         form = ProfileUpdate() 
@@ -56,3 +55,8 @@ class LocationDetail(View):
         found_location = Location.objects.get(name = locationname)
         context = {"found_location": found_location}
         return render(request, 'location-detail.html', context)
+
+    # def post(self, request):
+    #     current_user = request.user 
+
+        

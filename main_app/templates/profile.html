@@ -15,6 +15,9 @@
 <p>join date: {{user_profile.join_date}}</p>
 <img src="{{user_profile.image}}" height="300px" width="300px"</img>
 
+<br>
+
+<button>Edit Profile</button>
 
 <form action="{%url 'profile_page' %}" method="POST">
     {%csrf_token%}

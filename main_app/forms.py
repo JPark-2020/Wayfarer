@@ -1,5 +1,5 @@
 from django.forms import ModelForm 
-from .models import Profile 
+from .models import Profile, Post  
 
 
 class ProfileUpdate(ModelForm):
@@ -7,4 +7,10 @@ class ProfileUpdate(ModelForm):
         model = Profile
         fields = ['name', 'profile_location', 'image']
 
-        
+class PostCreate(ModelForm):
+    class Meta:
+        model = Post 
+        fields = ['title', 'content']
+
+
+
