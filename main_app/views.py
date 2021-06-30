@@ -5,6 +5,7 @@ from django.views import View
 from .models import Profile, Location, Post  
 from django.contrib.auth.forms import UserCreationForm 
 from django.views.generic.detail import DetailView
+from .forms import ProfileUpdate 
 
 class Home(TemplateView):
     template_name = "home.html"
@@ -14,7 +15,19 @@ class ProfilePage(View):
     def get(self, request):
         current_user = request.user
         user_profile = Profile.objects.get(user_id = current_user)
-        context = {"user_profile": user_profile}
+        form = ProfileUpdate() 
+        context = {"user_profile": user_profile, "form": form}
+        return render(request, "profile.html", context)
+
+    def post(self, request, *args, **kwargs):
+        current_user = request.user
+        user_profile = Profile.objects.get(user_id = current_user)
+        form = ProfileUpdate() 
+        context = {"user_profile": user_profile, "form": form}
+        if request.method == "POST":
+            form = ProfileUpdate(request.POST, instance=user_profile) 
+            if form.is_valid():
+                form.save() 
         return render(request, "profile.html", context)
 
 class SignUp(View):

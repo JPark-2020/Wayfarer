@@ -2,9 +2,6 @@
 {%extends 'base.html'%}
 {% load static %}
 
-{%block css_files%}
-<link rel="stylesheet" href="{% static 'styles/base.css' %}"/>
-{%endblock%}
 
 {%block js_files%}
 <script src="{%static 'scripts/profileModal.js'%}" defer></script>
@@ -18,5 +15,21 @@
 <p>join date: {{user_profile.join_date}}</p>
 <img src="{{user_profile.image}}" height="300px" width="300px"</img>
 
+
+<form action="{%url 'profile_page' %}" method="POST">
+    {%csrf_token%}
+    {{form}}
+    <button type="submit">Submit</button>
+</form>
+
+{% comment %} <button id="myBtn">Open Modal</button>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+    </div>
+</div>     {% endcomment %}
 
 {%endblock%}
