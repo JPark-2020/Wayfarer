@@ -39,5 +39,9 @@ class LocationList(View):
         return render(request, "location-list.html", context)
 
 class LocationDetail(DetailView):
-    def get(self, request):
-        return render(request, "location-detail.html")
+    model = Location 
+    template_name = "location-detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context 

@@ -1,3 +1,10 @@
 {% extends 'base.html'%}
 
-<h1>{{Location.name}}</h1>
+{%block content%}
+<h1>{{location.name}}</h1>
+<img src="{{location.image}}">
+
+<h2>POSTS</h2>
+
+
+{%endblock%}

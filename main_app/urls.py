@@ -6,5 +6,5 @@ urlpatterns = [
     path('profile/', views.ProfilePage.as_view(), name="profile_page"),
     path('accounts/signup', views.SignUp.as_view(), name="signup_page"),
     path('locations/', views.LocationList.as_view(), name="location_list_page"), 
-    path('locations/<str:type>', views.LocationDetail.as_view(), name="location_detail_page"),
+    path('locations/<int:pk>', views.LocationDetail.as_view(), name="location_detail_page"),
 ]
