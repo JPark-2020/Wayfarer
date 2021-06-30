@@ -1,0 +1,11 @@
+.navbar{
+    background-color: white; 
+    border-bottom: 2px solid lightblue; 
+    padding: 10px; 
+}
+
+.navbar a{
+    text-decoration: none; 
+    color: black; 
+}
+
