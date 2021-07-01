@@ -84,6 +84,14 @@ class PostList(View):
         context = {"all_posts": all_posts}
         return render(request, "post-list.html", context)
 
+def SearchLocations(request):
+    if request.method == "POST":
+        searchInfo = request.POST['searchInfo']
+        search_locations = Location.objects.filter(state__contains=searchInfo)
 
+        context = {"searchInfo": searchInfo, "search_locations":search_locations}
+        return render(request, 'search_locations.html', context)
 
+    else:
+        return render(request, 'search_locations.html')
         

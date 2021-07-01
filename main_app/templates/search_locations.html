@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+{%if searchInfo%}
+    <h1>You searched for {{searchInfo}}</h1>
+    {%for found_location in search_locations %}
+        <h3>{{found_location}}</h3>
+    {%endfor%}
+{%else%}
+    <h1>You forgot to search something</h1>
+
+{%endif%}
+
+{%endblock%}

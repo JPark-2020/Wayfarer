@@ -16,7 +16,11 @@
         <a href="{% url 'home_page' %}">Wayfarer</a>
         <a href="{% url 'profile_page'%}">Profile</a>
         <a href="{%url "location_list_page" %}">Locations</a>
-        <a href="">Search</a>
+        <form method="POST" action="{%url 'search_locations' %}">
+            {%csrf_token%}
+            <input type="search" placeholder="search state i.e NY" name="searchInfo">
+            <button type="submit">Search</button>
+        </form>
         <a href="{%url 'logout'%}">Log Out</a>
     </nav>
     {%else%}
