@@ -5,7 +5,10 @@
 {%if searchInfo%}
     <h1>You searched for {{searchInfo}}</h1>
     {%for found_location in search_locations %}
-        <h3>{{found_location}}</h3>
+        <div>
+        <h3><a href="{% url 'location_detail_page' found_location.name %}">{{found_location}}</a></h3>
+            <img src="{{found_location.image}}">
+        </div>
     {%endfor%}
 {%else%}
     <h1>You forgot to search something</h1>
