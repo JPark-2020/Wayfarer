@@ -10,6 +10,7 @@
 {%block content%}
 <h1>Hello {{user_profile.user.username}}</h1>
 
+
 <p>name:{{user_profile.name}}</p>
 <p>location: {{user_profile.profile_location}}</p>
 <p>join date: {{user_profile.join_date}}</p>
@@ -24,15 +25,4 @@
     {{form}}
     <button type="submit">Submit</button>
 </form>
-
-{% comment %} <button id="myBtn">Open Modal</button>
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Some text in the Modal..</p>
-    </div>
-</div>     {% endcomment %}
-
 {%endblock%}

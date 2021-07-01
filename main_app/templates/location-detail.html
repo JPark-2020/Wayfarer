@@ -6,4 +6,15 @@
 
 <h2>POSTS</h2>
 
+<ul>
+    {%for post in location_posts%}
+    <li>{{post.title}}</li>
+    {%endfor%}
+</ul>
+<form action="" method="POST">
+    {%csrf_token%}
+    {{form}}
+    <button type="submit">Submit</button>
+</form>
+
 {%endblock%}

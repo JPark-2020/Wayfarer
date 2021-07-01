@@ -5,6 +5,8 @@ from django.views import View
 from .models import Profile, Location, Post  
 from django.contrib.auth.forms import UserCreationForm 
 from .forms import ProfileUpdate, PostCreate  
+from django.views.generic import ListView
+from django.http import HttpResponseRedirect
 
 class Home(TemplateView):
     template_name = "home.html"
@@ -52,11 +54,59 @@ class LocationList(View):
 
 class LocationDetail(View):
     def get(self, request, locationname):
+        current_user = request.user 
+        form = PostCreate()
         found_location = Location.objects.get(name = locationname)
-        context = {"found_location": found_location}
+        location_posts = Post.objects.filter(post_location_id = found_location.id)
+        context = {"found_location": found_location, "form": form, "location_posts":location_posts}
         return render(request, 'location-detail.html', context)
 
-    # def post(self, request):
+    def post(self, request, locationname):
+        form = PostCreate(request.POST)
+        current_user = request.user
+        found_location = Location.objects.get(name = locationname)
+
+        if form.is_valid():
+            
+            form = form.save(commit=False)
+            form.post_location = Location.objects.get(id = found_location.id)
+            form.author = Profile.objects.get(user_id = current_user)
+            form.save()
+
+        return HttpResponseRedirect(self.request.path_info)
+    
+    
+    
+    
+    # def post(self, request, locationname):
     #     current_user = request.user 
+    #     user_profile = Profile.objects.get(user_id = current_user)
+    #     form = PostCreate() 
+    #     found_location = Location.objects.get(name = locationname)
+    #     context = {"found_location": found_location, "form": form}
+    #     if request.method == "POST":
+    #         post_author = user_profile.user_id
+    #         post_title = request.POST['title']
+    #         post_content = request.POST['content']
+    #         print(post_author)
+    #         print(post_title)
+    #         print(post_content)
+    #         if form.is_valid():
+    #             Post.objects.create(
+    #                 title = post_title, 
+    #                 content = post_content,
+    #                 author_id = post_author,
+    #             )
+    #             form.save()
+    #         return render(request,'location-detail.html', context)
+                
+
+class PostList(View):
+    def get(self, request):
+        all_posts = Post.objects.all()
+        context = {"all_posts": all_posts}
+        return render(request, "post-list.html", context)
+
+
 
         
