@@ -3,10 +3,11 @@ from django.http import HttpResponse
 from django.views.generic.base import TemplateView 
 from django.views import View
 from .models import Profile, Location, Post  
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm 
-from .forms import ProfileUpdate, PostCreate  
-from django.views.generic import ListView
+from .forms import ProfileUpdate, PostCreate, UserRegisterForm 
 from django.http import HttpResponseRedirect
+
 
 class Home(TemplateView):
     template_name = "home.html"
@@ -31,20 +32,30 @@ class ProfilePage(View):
                 form.save() 
         return render(request, "profile.html", context)
 
-class SignUp(View):
-    def get(self, request):
-        form = UserCreationForm()
-        context = {"form": form}
-        return render(request, "registration/signup.html", context)
-
-    def post(self, request):
-        form = UserCreationForm(request.POST)
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            Profile.objects.create(user=user)
-            return redirect('/portfolio')
-        else:
-            return redirect("/")
+            form.save()
+            return redirect('profile_page')
+    else:
+        form = UserRegisterForm()
+    return render(request, 'registration/signup.html', {"form":form})
+    
+# class SignUp(View):
+#     def get(self, request):
+#         form = UserCreationForm()
+#         context = {"form": form}
+#         return render(request, "registration/signup.html", context)
+
+#     def post(self, request):
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             Profile.objects.create(user=user)
+#             return redirect('/profile')
+#         else:
+#             return redirect("/")
 
 class LocationList(View):
     def get(self, request):
@@ -53,8 +64,7 @@ class LocationList(View):
         return render(request, "location-list.html", context)
 
 class LocationDetail(View):
-    def get(self, request, locationname):
-        current_user = request.user 
+    def get(self, request, locationname): 
         form = PostCreate()
         found_location = Location.objects.get(name = locationname)
         location_posts = Post.objects.filter(post_location_id = found_location.id)

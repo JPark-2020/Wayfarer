@@ -8,7 +8,7 @@
 
 <ul>
     {%for post in location_posts%}
-    <li>{{post.title}}</li>
+    <li>{{post.author}}-{{post.title}}:{{post.content}}-{{post.created_at}}</li>
     {%endfor%}
 </ul>
 <form action="" method="POST">

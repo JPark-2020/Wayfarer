@@ -1,6 +1,8 @@
 from django.forms import ModelForm 
 from .models import Profile, Post  
-
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User 
+from django import forms 
 
 class ProfileUpdate(ModelForm):
     class Meta:
@@ -13,11 +15,10 @@ class PostCreate(ModelForm):
         fields = ['title', 'content']
 
 
-# class Post(Model):
-#     author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="posts")
-#     title = models.CharField(max_length = 30)
-#     content = models.CharField(max_length=300)
-#     created_at = models.DateTimeField(auto_now_add=True)
-
-#     def __str__(self):
-#         return f'{self.author} - {self.title}'
+class UserRegisterForm(UserCreationForm):
+    email = forms.EmailField()
+    first_name = forms.TextInput()
+    last_name= forms.TextInput()
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
