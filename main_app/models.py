@@ -31,7 +31,7 @@ class Profile(Model):
 class Post(Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="posts")
     title = models.CharField(max_length = 30)
-    content = models.CharField(max_length=300)
+    content = models.CharField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
     post_location = models.ForeignKey(Location, on_delete = models.CASCADE, null=True, blank=True)
     

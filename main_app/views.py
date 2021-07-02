@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from django.views.generic.base import TemplateView 
 from django.views import View
 from .models import Profile, Location, Post  
-from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm 
 from django.contrib.auth import login
 from .forms import ProfileUpdate, PostCreate
@@ -88,7 +87,6 @@ def SearchLocations(request):
     if request.method == "POST":
         searchInfo = request.POST['searchInfo']
         search_locations = Location.objects.filter(state__contains=searchInfo)
-
         context = {"searchInfo": searchInfo, "search_locations":search_locations}
         return render(request, 'search_locations.html', context)
 

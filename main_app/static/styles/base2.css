@@ -1,0 +1,112 @@
+* {
+    padding: 0;
+    margin: 0; 
+}
+  
+html {
+    max-height: 2100px;
+    max-width: 1600px;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.navbar {
+    background-color: white; 
+    padding: 10px; 
+    position: sticky;
+    top: 0%;
+}
+
+.navbar a {
+    text-decoration: none; 
+    color: black; 
+}
+
+.helptext {
+    display: none; 
+}
+
+.landing_grid{
+    display: grid; 
+    grid-template-rows: 3fr 2fr 3fr;
+    grid-template-columns: 100%; 
+    grid-template-areas: "landimage"
+                         "trending"
+                         "recentposts";
+}
+
+.landing_page_container{
+    grid-area: landimage; 
+    width: 100%;
+    height: 100%;
+    height:600px;
+    width:800px;
+}
+
+.landing_image{
+    z-index: -1;
+    position: absolute; 
+    width: 100vw;
+    height: 600px; 
+}
+
+.home_header{
+    position:absolute;
+    top: 30%;
+    left: 30%;
+    color: rgb(244,57,57);
+}
+
+.fas{
+    color: rgb(244,57,57); 
+}
+.landing_search_form{
+    position:absolute;
+    top: 40%;
+    left: 30%;
+}
+
+.landing_page_trending{
+    grid-area: trending;
+    background-color: red; 
+    width: 800px; 
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 3fr; 
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "hothead hothead hothead"
+                            "hot1 hot2 hot3";
+    justify-items:center;
+    align-items:center; 
+}
+
+#hot-header{
+    grid-area:hothead;
+    align-self: center;
+    justify-self: center; 
+}
+
+.hot-1{
+    grid-area: hot1;
+    border: 2px solid black; 
+}
+
+
+.hot-2{
+    grid-area: hot2;
+    border: 2px solid black; 
+}
+
+.hot-3{
+    grid-area:hot3;
+    border: 2px solid black; 
+}
+
+.landing_page_recentposts{
+    grid-area: recentposts;
+    background-color: green; 
+    width: 100%;
+
+}

@@ -1,7 +1,58 @@
 {%extends 'base.html'%}
 {%load static%}
 {% block title %} HOME {% endblock %}
-
+{%block css_files%} 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+{%endblock%}
 {%block content%}
-<h1>Home</h1>
+
+{% comment %} landing image + search {% endcomment %}
+<div class="landing_grid">
+    <div class="landing_page_container">
+        <div>
+            <img class="landing_image" src="{%static 'images/wayfarerlanding.jpeg'%}">
+        </div>
+        <h1 class="home_header">wayfarer&nbsp;<i class="fas fa-map-pin"></i></h1>
+        <form class="landing_search_form" method="POST" action="{%url 'search_locations' %}">
+            {%csrf_token%}
+            <input type="search" placeholder="search state i.e NY" name="searchInfo">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    {% comment %} HOT Locations {% endcomment %}
+    <div class="landing_page_trending">
+        <h2 id="hot-header">Hot Locations</h2>
+        
+        <div class="hot-1">
+            <h3>Hot location 1</h3>
+        </div>
+        
+        <div class="hot-2">
+            <h3>Hot location 2</h3>
+        </div>
+        
+        <div class="hot-3">
+            <h3>Hot location 3</h3>
+        </div>
+
+    </div>
+
+    {% comment %} Recent Posts {% endcomment %}
+    <div class="landing_page_recentposts">
+        <h2>Recent Posts</h2>
+        <div>
+        <div>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cumque sed dolor esse, illo sunt quam facere, animi possimus incidunt reiciendis. Ut quas modi fugit? Vel dicta atque aliquam ipsam!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cumque sed dolor esse, illo sunt quam facere, animi possimus incidunt reiciendis. Ut quas modi fugit? Vel dicta atque aliquam ipsam!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cumque sed dolor esse, illo sunt quam facere, animi possimus incidunt reiciendis. Ut quas modi fugit? Vel dicta atque aliquam ipsam!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cumque sed dolor esse, illo sunt quam facere, animi possimus incidunt reiciendis. Ut quas modi fugit? Vel dicta atque aliquam ipsam!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cumque sed dolor esse, illo sunt quam facere, animi possimus incidunt reiciendis. Ut quas modi fugit? Vel dicta atque aliquam ipsam!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cumque sed dolor esse, illo sunt quam facere, animi possimus incidunt reiciendis. Ut quas modi fugit? Vel dicta atque aliquam ipsam!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cumque sed dolor esse, illo sunt quam facere, animi possimus incidunt reiciendis. Ut quas modi fugit? Vel dicta atque aliquam ipsam!</p>
+    </div>
+</div>
+
+
 {%endblock%}

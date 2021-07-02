@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{%static 'styles/base.css'%}">
+    <link rel="stylesheet" href="{%static 'styles/base2.css'%}">
     {%block css_files%}{%endblock%}
     {%block js_files%}{%endblock%}
 </head>
@@ -16,11 +16,6 @@
         <a href="{% url 'home_page' %}">Wayfarer</a>
         <a href="{% url 'profile_page'%}">Profile</a>
         <a href="{%url "location_list_page" %}">Locations</a>
-        <form method="POST" action="{%url 'search_locations' %}">
-            {%csrf_token%}
-            <input type="search" placeholder="search state i.e NY" name="searchInfo">
-            <button type="submit">Search</button>
-        </form>
         <a href="{%url 'logout'%}">Log Out</a>
     </nav>
     {%else%}

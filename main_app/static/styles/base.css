@@ -1,7 +1,22 @@
+/* *{
+  padding: 0;
+  margin: 0; 
+}
+
+html{
+  height: 100vh;
+  max-width: 1200px;
+}
+
+body{
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 .navbar{
     background-color: white; 
-    border-bottom: 2px solid lightblue; 
     padding: 10px; 
+    position: sticky;
+    top: 0%;
 }
 
 .navbar a{
@@ -12,3 +27,50 @@
 .helptext{
   display: none; 
 }
+
+.landing_page_container{
+  max-width:1200px; 
+  max-height: 420px; 
+  padding-bottom:20px;
+}
+
+.landing_image{
+  z-index: -1;
+  width: 100%;
+  height: 50%; 
+  position: fixed; 
+}
+
+.landing_search_form{
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  position: fixed; 
+}
+
+.fas{
+  color: rgb(218, 80, 80); 
+}
+
+.home_header{
+  color: black; 
+  font-size: 30px; 
+  position: fixed;
+  top:12%;
+  left: 53%; 
+}
+
+.landing_page_trending{
+  margin-top: 40%;
+  height: 20%;
+  width: 100%; 
+  
+  background-color: blue; 
+}
+
+.landing_page_recentposts{
+  
+  
+  width: 100%;
+  background-color: red; 
+} */

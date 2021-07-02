@@ -2,8 +2,8 @@
 
 {%block content%}
 
-{%if searchInfo%}
-    <h1>You searched for {{searchInfo}}</h1>
+{%if search_locations%}
+    <h1>Search results for: {{searchInfo}}</h1>
     {%for found_location in search_locations %}
         <div>
         <h3><a href="{% url 'location_detail_page' found_location.name %}">{{found_location}}</a></h3>
@@ -11,8 +11,8 @@
         </div>
     {%endfor%}
 {%else%}
-    <h1>You forgot to search something</h1>
-
+    <h1>Error: No Matches for {{searchInfo}}</h1>
+    <h3>Try State abbreviations like NY, CA!</h3>
 {%endif%}
 
 {%endblock%}
