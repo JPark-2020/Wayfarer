@@ -19,21 +19,28 @@
             <button type="submit">Search</button>
         </form>
     </div>
-
-    {% comment %} HOT Locations {% endcomment %}
     <div class="landing_page_trending">
         <h2 id="hot-header">Hot Locations</h2>
         
         <div class="hot-1">
-            <h3>Hot location 1</h3>
+            <div class="hotimage">
+                <img src={{hot_location1.image}}>
+            </div>
+            <h3 class="image_title"><a href="{%url 'location_detail_page' hot_location1.name%}">{{hot_location1}}</a></h3>
         </div>
         
         <div class="hot-2">
-            <h3>Hot location 2</h3>
+            <div class="hotimage">
+                <img src={{hot_location2.image}}>
+            </div>
+            <h3 class="image_title"><a href="{%url 'location_detail_page' hot_location2.name%}">{{hot_location2}}</a></h3>
         </div>
         
         <div class="hot-3">
-            <h3>Hot location 3</h3>
+            <div class="hotimage">
+                <img src={{hot_location3.image}}>
+            </div>
+            <h3 class="image_title"><a href="{%url 'location_detail_page' hot_location3.name%}">{{hot_location3}}</a></h3>
         </div>
 
     </div>
@@ -41,16 +48,14 @@
     {% comment %} Recent Posts {% endcomment %}
     <div class="landing_page_recentposts">
         <h2>Recent Posts</h2>
-        <div>
-        <div>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cumque sed dolor esse, illo sunt quam facere, animi possimus incidunt reiciendis. Ut quas modi fugit? Vel dicta atque aliquam ipsam!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cumque sed dolor esse, illo sunt quam facere, animi possimus incidunt reiciendis. Ut quas modi fugit? Vel dicta atque aliquam ipsam!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cumque sed dolor esse, illo sunt quam facere, animi possimus incidunt reiciendis. Ut quas modi fugit? Vel dicta atque aliquam ipsam!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cumque sed dolor esse, illo sunt quam facere, animi possimus incidunt reiciendis. Ut quas modi fugit? Vel dicta atque aliquam ipsam!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cumque sed dolor esse, illo sunt quam facere, animi possimus incidunt reiciendis. Ut quas modi fugit? Vel dicta atque aliquam ipsam!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cumque sed dolor esse, illo sunt quam facere, animi possimus incidunt reiciendis. Ut quas modi fugit? Vel dicta atque aliquam ipsam!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cumque sed dolor esse, illo sunt quam facere, animi possimus incidunt reiciendis. Ut quas modi fugit? Vel dicta atque aliquam ipsam!</p>
+        <ul>
+            {%for post in recent_posts|slice:":6"%}
+            <li>{{post.author}}</li>
+            <li>{{post.title}}</li>
+            <li>{{post.content}}</li>
+            <li>{{post.created_at}}</li>
+            {%endfor%}
+        </ul>
     </div>
 </div>
 

@@ -24,7 +24,7 @@ class Profile(Model):
     image = models.CharField(max_length=1000, default="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png")
 
     def __str__(self):
-        return self.name 
+        return self.user.username  
 
 #One post has one author, one author has many posts 
 
@@ -35,6 +35,10 @@ class Post(Model):
     created_at = models.DateTimeField(auto_now_add=True)
     post_location = models.ForeignKey(Location, on_delete = models.CASCADE, null=True, blank=True)
     
+    class Meta:
+        ordering = ['-created_at']
     def __str__(self):
         return f'{self.author} - {self.title}'
+
+    
 

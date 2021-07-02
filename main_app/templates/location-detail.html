@@ -1,20 +1,31 @@
 {% extends 'base.html'%}
 
 {%block content%}
-<h1>{{found_location.name}}, {{found_location.state}}</h1>
-<img src="{{found_location.image}}">
 
-<h2>POSTS</h2>
+<div class="foundlocationinfo_text">
+    <h1>{{found_location.name}}, {{found_location.state}}</h1>
+    <img class="foundimage" src="{{found_location.image}}">
+</div>
 
-<ul>
-    {%for post in location_posts%}
-    <li>{{post.author}}-{{post.title}}:{{post.content}}-{{post.created_at}}</li>
-    {%endfor%}
-</ul>
-<form action="" method="POST">
-    {%csrf_token%}
-    {{form}}
-    <button type="submit">Submit</button>
-</form>
+
+<br>
+
+<div class="foundlocationinfo_posts">
+    <h2>Recent Posts</h2>
+
+    <form action="" method="POST">
+        {%csrf_token%}
+        {{form}}
+        <button type="submit">Add Post</button>
+    </form>
+    
+    <br>
+
+    <ul class="alltheposts">
+        {%for post in location_posts%}
+        <li>{{post.author}}-{{post.title}}:{{post.content}}-{{post.created_at}}</li>
+        {%endfor%}
+    </ul>
+</div>
 
 {%endblock%}

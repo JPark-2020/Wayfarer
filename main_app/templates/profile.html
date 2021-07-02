@@ -8,21 +8,21 @@
 {%endblock%}
 
 {%block content%}
-<h1>Hello {{user_profile.user.username}}</h1>
+<div class="profile_head">
 
+</div>
+<div class="profile_card">
+    <img src="{{user_profile.image}}" height="400px" width="400px"</img>
+    <div class="card_info">
+        <h2>{{user_profile.user.username}}</h2>
+        <p>Current Location: {{user_profile.profile_location}}</p>
+        <p>Joined: {{user_profile.join_date | date:"m/d/Y"}}</p>
+    </div>
 
-<p>name:{{user_profile.name}}</p>
-<p>location: {{user_profile.profile_location}}</p>
-<p>join date: {{user_profile.join_date | date:"m/d/Y"}}</p>
-<img src="{{user_profile.image}}" height="300px" width="300px"</img>
-
-<br>
-
-<button>Edit Profile</button>
-
-<form action="{%url 'profile_page' %}" method="POST">
-    {%csrf_token%}
-    {{form}}
-    <button type="submit">Submit</button>
-</form>
+    <form action="{%url 'profile_page' %}" method="POST">
+        {%csrf_token%}
+        {{form}}
+        <button type="submit">Edit Profile</button>
+    </form>
+</div>
 {%endblock%}

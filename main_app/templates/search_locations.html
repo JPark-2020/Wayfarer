@@ -3,16 +3,20 @@
 {%block content%}
 
 {%if search_locations%}
-    <h1>Search results for: {{searchInfo}}</h1>
-    {%for found_location in search_locations %}
-        <div>
-        <h3><a href="{% url 'location_detail_page' found_location.name %}">{{found_location}}</a></h3>
-            <img src="{{found_location.image}}">
-        </div>
-    {%endfor%}
+    <div class="success_search">
+        <h1 class="search_head">Search results for: {{searchInfo}}</h1>
+
+        {%for found_location in search_locations %}
+            <div class="search_results">
+                <h3><a href="{% url 'location_detail_page' found_location.name %}">{{found_location}}</a></h3>
+            </div>
+        {%endfor%}
+    </div>
 {%else%}
-    <h1>Error: No Matches for {{searchInfo}}</h1>
-    <h3>Try State abbreviations like NY, CA!</h3>
+    <div class="error_search">
+        <h1 class="search_head">Error: No Matches for {{searchInfo}}</h1>
+        <h3 class="search_minor">Try State abbreviations like NY, CA!</h3>
+    </div>
 {%endif%}
 
 {%endblock%}

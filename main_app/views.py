@@ -7,11 +7,33 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .forms import ProfileUpdate, PostCreate
 from django.http import HttpResponseRedirect
+from datetime import datetime
+import random 
 
+class Home(View):
+    def get(self, request):
+        today = datetime.today()
+        print(today)
+        recent_posts = Post.objects.filter(created_at__lt=today)
+        
 
-class Home(TemplateView):
-    template_name = "home.html"
+        hot1 = random.randint(1,20)
+        hot2 = random.randint(21,32)
+        hot3 = random.randint(33,49)
 
+        
+        hot_location1 = Location.objects.get(id=hot1)
+        hot_location2 = Location.objects.get(id=hot2)
+        hot_location3 = Location.objects.get(id=hot3)
+
+        context = {
+            "recent_posts":recent_posts, 
+            "hot_location1":hot_location1, 
+            "hot_location2":hot_location2, 
+            "hot_location3":hot_location3
+            }
+
+        return render(request,"home.html",context)
 
 class ProfilePage(View):
     def get(self, request):
@@ -85,7 +107,7 @@ class PostList(View):
 
 def SearchLocations(request):
     if request.method == "POST":
-        searchInfo = request.POST['searchInfo']
+        searchInfo = request.POST['searchInfo'].upper()
         search_locations = Location.objects.filter(state__contains=searchInfo)
         context = {"searchInfo": searchInfo, "search_locations":search_locations}
         return render(request, 'search_locations.html', context)

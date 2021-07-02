@@ -4,7 +4,7 @@ from .models import Profile, Post
 class ProfileUpdate(ModelForm):
     class Meta:
         model = Profile
-        fields = ['name', 'profile_location', 'image']
+        fields = ['profile_location', 'image']
 
 class PostCreate(ModelForm):
     class Meta:
