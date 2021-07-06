@@ -47,15 +47,18 @@
 
     {% comment %} Recent Posts {% endcomment %}
     <div class="landing_page_recentposts">
-        <h2>Recent Posts</h2>
-        <ul>
-            {%for post in recent_posts|slice:":6"%}
-            <li>{{post.author}}</li>
-            <li>{{post.title}}</li>
+        <h2 class="recent_header">Recent Posts</h2>
+        {%for post in recent_posts|slice:":6"%}
+        <ul class="recentposts">
+            <li><img class="recentprofileimages" src="{{post.author.image}}">&nbsp;{{post.author}}</li>
+            <br>
+            <li class="recent_title"><a href="{%url 'location_detail_page' post.post_location.name%}">{{post.title}}</a></li>
             <li>{{post.content}}</li>
+            <br>
+            <hr>
             <li>{{post.created_at}}</li>
-            {%endfor%}
         </ul>
+        {%endfor%}
     </div>
 </div>
 

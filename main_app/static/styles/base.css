@@ -1,76 +1,332 @@
-/* *{
+* {
   padding: 0;
   margin: 0; 
 }
 
-html{
-  height: 100vh;
-  max-width: 1200px;
+html {
+  max-height: 2100px;
+  max-width: 1600px;
 }
 
-body{
+body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-.navbar{
-    background-color: white; 
-    padding: 10px; 
-    position: sticky;
-    top: 0%;
+/* BASE + HOME */
+.navbar {
+  background-color: rgb(245,245,245); 
+  padding: 10px; 
+  position: sticky;
+  top: 0%;
+  width: 100%; 
 }
 
-.navbar a{
-    text-decoration: none; 
-    color: black; 
+.navbar a {
+  text-decoration: none; 
+  color: black; 
+  margin-right: 20px; 
 }
 
-.helptext{
+.helptext {
   display: none; 
 }
 
+.landing_grid{
+  display: grid; 
+  grid-template-rows: 3fr 2fr 3fr;
+  grid-template-columns: 100%; 
+  grid-template-areas: "landimage"
+                       "trending"
+                       "recentposts";
+}
+
 .landing_page_container{
-  max-width:1200px; 
-  max-height: 420px; 
-  padding-bottom:20px;
+  grid-area: landimage; 
+  width: 100%;
+  height: 100%;
+  height:600px;
+  width:800px;
 }
 
 .landing_image{
   z-index: -1;
-  width: 100%;
-  height: 50%; 
-  position: fixed; 
-}
-
-.landing_search_form{
-  z-index: 0;
-  left: 50%;
-  top: 50%;
-  position: fixed; 
-}
-
-.fas{
-  color: rgb(218, 80, 80); 
+  position: absolute; 
+  width: 100vw;
+  height: 100%; 
 }
 
 .home_header{
-  color: black; 
-  font-size: 30px; 
-  position: fixed;
-  top:12%;
-  left: 53%; 
+  position:absolute;
+  top: 25%;
+  left: 31%;
+  color: rgb(244,57,57);
+}
+
+.fas{
+  color: rgb(244,57,57); 
+}
+.landing_search_form{
+  position:absolute;
+  top: 32%;
+  left: 30%;
 }
 
 .landing_page_trending{
-  margin-top: 40%;
-  height: 20%;
-  width: 100%; 
-  
-  background-color: blue; 
+  grid-area: trending;
+  background-color: rgb(245,245,245); 
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 1fr 3fr; 
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "hothead hothead hothead"
+                          "hot1 hot2 hot3";
+  justify-items:center;
+  align-items:center; 
 }
 
+#hot-header{
+  grid-area:hothead;
+  align-self: center;
+  justify-self: center;
+  color: rgb(244,57,57);
+}
+
+.hotimage img{
+  width: 300px;
+  height: 300px; 
+  display: inline-block;
+}
+
+.hot-1{
+  grid-area: hot1;
+  border: 2px solid black; 
+}
+
+
+.hot-2{
+  grid-area: hot2;
+  border: 2px solid black; 
+}
+
+.hot-3{
+  grid-area:hot3;
+  border: 2px solid black; 
+}
+
+.image_title{
+  text-align: center; 
+}
+
+.image_title a{
+  text-decoration: none; 
+}
+
+.image_title a:hover,
+.image_title h3:hover {
+  text-decoration:solid;
+  text-decoration-color:red;
+}
+
+
 .landing_page_recentposts{
-  
-  
+  margin-top: 20px; 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 3fr 3fr; 
+  grid-template-areas: "recenthead recenthead recenthead"
+                       "recentposts1 recentposts2 recentposts3"
+                       "recentposts4 recentposts5 recentposts6";
+  justify-items:center;
+  align-items:center; 
+}
+
+.recent_header{
+  grid-area:recenthead;
+  align-self: center;
+  justify-self: center;
+  color: rgb(244,57,57);
+}
+
+.recentposts li{
+  list-style-type: none; 
+}
+
+.recentprofileimages{
+  width: 30px;
+  height: 30px; 
+}
+
+.recentposts{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding: 30px; 
+  justify-self: center;
+  align-self: center; 
+  justify-content: center;
+  align-content: center; 
+}
+
+.recentposts a{
+  text-decoration: none; 
+}
+.recentposts a:hover{
+  text-decoration: underline;
+  color: blue; 
+}
+.recentposts:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.recent_title{
+  color: aqua; 
+}
+
+.landing_page_recentposts > .recentposts:nth-child(1){
+  grid-area: recentposts1;
+}
+
+.landing_page_recentposts > .recentposts:nth-child(1){
+  grid-area: recentposts2;
+}
+
+.landing_page_recentposts > .recentposts:nth-child(1){
+  grid-area: recentposts3;
+}
+
+.landing_page_recentposts > .recentposts:nth-child(1){
+  grid-area: recentposts4;
+}
+
+.landing_page_recentposts > .recentposts:nth-child(1){
+  grid-area: recentposts5;
+}
+
+.landing_page_recentposts > .recentposts:nth-child(1){
+  grid-area: recentposts6;
+}
+
+/* PROFILE */
+.profile_card{
+  text-align: center;
+  background: url("https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80");
+  background-repeat: no-repeat; 
+  background-size: 100%;
+  width: 100vw;
+  height: 100vh; 
+  color:black;
+}
+
+
+.card_info{
+  margin-top: 2%; 
+}
+
+.card_info p{
+  margin-top: 3%;
+}
+
+.profile_card form{
+  padding-top: 20px; 
+}
+
+/* SEARCH */
+
+.search_results{
+  margin-top: 30px; 
+  margin-left: 20px; 
+}
+
+.error_search{
+  background: url("https://images.unsplash.com/photo-1532003885409-ed84d334f6cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80");
+  width: 100vw; 
+  height: 900px;
+  background-repeat: no-repeat;
+  background-size: 100%; 
+  z-index: -1;
+}
+
+.success_search{
+  background-color: coral; 
+  height: 100vh;
+}
+.success_search a{
+  text-decoration:none; 
+}
+.success_search a:hover{
+  text-decoration: underline;
+  color: blue; 
+}
+
+/* Location List */
+
+.location_list_head{
+  text-align: center; 
+  padding: 10px; 
+  margin-bottom: 20px; 
+  margin-top: 20px; 
+}
+
+.location_list_detail{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  list-style-type: none; 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto-fill, 1fr);
+  grid-row-gap: .5em;
+  grid-column-gap: 1em; 
+}
+
+.list_image{
+  width: 50%;
+  height: 50%;
+}
+
+.location_list_container{
+  margin: 10px; 
+  margin: auto; 
+  text-align: center; 
+  padding: 20px; 
+}
+
+.location_list_container a{
+  text-decoration: none; 
+  color: black;
+}
+
+.location_list_container a:hover{
+  text-decoration: underline; 
+  color: blue; 
+}
+
+
+/* Location Detail */
+
+.foundlocationinfo_text{
   width: 100%;
-  background-color: red; 
-} */
+  height: 50%; 
+}
+
+.foundlocationinfo_text h1{
+  text-align: center; 
+}
+.foundlocationinfo_posts{
+  width: 100%;
+  height: 70vh; 
+  max-height: 100vh;
+}
+
+.foundimage{
+  width: 100vw;  
+  max-height: 600px; 
+}
+
+.foundlocationinfo_posts h2{
+  text-align: center; 
+  color: rgb(244,57,57);
+}
+
+.alltheposts{
+  margin-top:10px; 
+}
+

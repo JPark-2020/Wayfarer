@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<ul>
+<h1 class="location_list_head">All Locations</h1>
+
+<ul class="location_list_detail">
     {%for location in all_locations%}
-    <li><a href="{% url 'location_detail_page' location.name %}">{{location}}</a></li>
+    <div class="location_list_container">
+        <li><img class="list_image" src="{{location.image}}"></li>
+        <li class="location_list_info"><a href="{% url 'location_detail_page' location.name %}">{{location}}</a></li>
+    </div>
     {%endfor%}
 </ul>
 {% endblock %}
