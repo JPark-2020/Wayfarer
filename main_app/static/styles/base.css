@@ -265,6 +265,7 @@ body {
   padding: 10px; 
   margin-bottom: 20px; 
   margin-top: 20px; 
+  width: 100vw;
 }
 
 .location_list_detail{
@@ -276,6 +277,7 @@ body {
   grid-template-rows: repeat(auto-fill, 1fr);
   grid-row-gap: .5em;
   grid-column-gap: 1em; 
+  width: 100vw; 
 }
 
 .list_image{
@@ -314,7 +316,7 @@ body {
   margin-bottom: 30px; 
 }
 .foundlocationinfo_posts{
-  width: 100%;
+  width: 100vw;
   height: 100%;
 }
 
@@ -344,14 +346,17 @@ body {
 
 
 .userpost{
-  width: 80%;
+  width: 70%;
   height: 33%; 
   justify-content: center;
   align-content: center;
-  margin: auto; 
-  
-  padding: 50px; 
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding: 60px; 
+  text-align: center; 
+  margin: 20px; 
 }
+
 .alltheposts{
   display: grid; 
   grid-template-columns: repeat(3, 1fr);
