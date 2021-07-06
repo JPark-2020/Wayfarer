@@ -10,20 +10,29 @@
 
 <br>
 
-<div class="foundlocationinfo_posts">
+<div class="foundlocationinfo">
     <h2>Recent Posts</h2>
 
-    <form action="" method="POST">
+    <form class="postcreation" action="" method="POST">
         {%csrf_token%}
         {{form}}
-        <button type="submit">Add Post</button>
+        <button class="add_a_post" type="submit">Add Post</button>
     </form>
-    
     <br>
+    <hr>
+</div>
 
+<div class="foundlocationinfo_posts">
     <ul class="alltheposts">
         {%for post in location_posts%}
-        <li>{{post.author}}-{{post.title}}:{{post.content}}-{{post.created_at}}</li>
+        <div class="userpost">
+            <li><img class="posterimage" src="{{post.author.image}}">&nbsp;{{post.author}}</li>
+            <br>
+            <li>{{post.title}}</li>
+            <li>{{post.content}}</li>
+            <br>
+            <li>{{post.created_at}}</li>
+        </div>
         {%endfor%}
     </ul>
 </div>

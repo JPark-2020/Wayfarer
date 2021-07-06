@@ -44,7 +44,7 @@ body {
   grid-area: landimage; 
   width: 100%;
   height: 100%;
-  height:600px;
+  height:700px;
   width:800px;
 }
 
@@ -74,7 +74,7 @@ body {
 .landing_page_trending{
   grid-area: trending;
   background-color: rgb(245,245,245); 
-  width: 100vw;
+  width: 100vw; 
   display: grid;
   grid-template-rows: 1fr 3fr; 
   grid-template-columns: 1fr 1fr 1fr;
@@ -131,6 +131,7 @@ body {
 .landing_page_recentposts{
   margin-top: 20px; 
   display: grid; 
+  width: 100vw; 
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 3fr 3fr; 
   grid-template-areas: "recenthead recenthead recenthead"
@@ -303,17 +304,18 @@ body {
 /* Location Detail */
 
 .foundlocationinfo_text{
-  width: 100%;
+  width: 100vw; 
   height: 50%; 
 }
 
 .foundlocationinfo_text h1{
   text-align: center; 
+  margin-top: 30px; 
+  margin-bottom: 30px; 
 }
 .foundlocationinfo_posts{
   width: 100%;
-  height: 70vh; 
-  max-height: 100vh;
+  height: 100%;
 }
 
 .foundimage{
@@ -321,12 +323,45 @@ body {
   max-height: 600px; 
 }
 
-.foundlocationinfo_posts h2{
+.foundlocationinfo h2{
   text-align: center; 
   color: rgb(244,57,57);
+  margin-top: 20px; 
 }
 
+.foundlocationinfo{
+  width: 100vw;
+}
 .alltheposts{
   margin-top:10px; 
 }
 
+
+.postcreation{
+  text-align:center; 
+  margin-top: 20px; 
+}
+
+
+.userpost{
+  width: 80%;
+  height: 33%; 
+  justify-content: center;
+  align-content: center;
+  margin: auto; 
+  
+  padding: 50px; 
+}
+.alltheposts{
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr); 
+  list-style-type: none; 
+  align-content: center;
+  justify-content: center; 
+}
+
+.posterimage{
+  width: 30px;
+  height: 30px; 
+}
