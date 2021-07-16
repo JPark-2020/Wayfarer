@@ -1,12 +1,15 @@
-{%extends 'base.html' %}
+{%extends 'base.html' %} 
 
 {%block content%}
+
 <h1>All Posts</h1>
 
 <ul>
-    {%for post in all_posts%}
-    <li>{{post.author}} - {{post.title}} - {{post.content}} - {{post.created_at}}</li>
-    {%endfor%}
+  {%for post in all_posts%}
+  <li>
+    {{post.author}} - {{post.title}} - {{post.content}} - {{post.created_at}}
+  </li>
+  {%endfor%}
 </ul>
 
 {%endblock%}

@@ -1,40 +1,43 @@
-{% extends 'base.html'%}
+{% extends 'base.html'%} 
 
 {%block content%}
 
 <div class="foundlocationinfo_text">
-    <h1>{{found_location.name}}, {{found_location.state}}</h1>
-    <img class="foundimage" src="{{found_location.image}}">
+  <h1>{{found_location.name}}, {{found_location.state}}</h1>
+  <img class="foundimage" src="{{found_location.image}}" />
 </div>
 
-
-<br>
+<br />
 
 <div class="foundlocationinfo">
-    <h2>Recent Posts</h2>
+  <h2>Recent Posts</h2>
 
-    <form class="postcreation" action="" method="POST">
-        {%csrf_token%}
-        {{form}}
-        <button class="add_a_post" type="submit">Add Post</button>
-    </form>
-    <br>
-    <hr>
+  <form class="postcreation" action="" method="POST">
+    {%csrf_token%} {{form}}
+    <button class="add_a_post" type="submit">Add Post</button>
+  </form>
+  <br />
+  <hr />
 </div>
 
 <div class="foundlocationinfo_posts">
-    <ul class="alltheposts">
-        {%for post in location_posts%}
-        <div class="userpost">
-            <li><img class="posterimage" src="{{post.author.image}}">&nbsp;{{post.author}}</li>
-            <br>
-            <li>{{post.title}}</li>
-            <li>{{post.content}}</li>
-            <br>
-            <li>{{post.created_at}}</li>
-        </div>
-        {%endfor%}
-    </ul>
+  <ul class="alltheposts">
+    {%for post in location_posts%}
+    <div class="userpost">
+      <li>
+        <img
+          class="posterimage"
+          src="{{post.author.image}}"
+        />&nbsp;{{post.author}}
+      </li>
+      <br />
+      <li>{{post.title}}</li>
+      <li>{{post.content}}</li>
+      <br />
+      <li>{{post.created_at}}</li>
+    </div>
+    {%endfor%}
+  </ul>
 </div>
 
 {%endblock%}

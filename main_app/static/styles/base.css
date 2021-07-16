@@ -1,6 +1,6 @@
 * {
   padding: 0;
-  margin: 0; 
+  margin: 0;
 }
 
 html {
@@ -14,359 +14,357 @@ body {
 
 /* BASE + HOME */
 .navbar {
-  background-color: rgb(245,245,245); 
-  padding: 10px; 
+  background-color: rgb(245, 245, 245);
+  padding: 10px;
   position: sticky;
   top: 0%;
-  width: 100%; 
+  width: 100%;
 }
 
 .navbar a {
-  text-decoration: none; 
-  color: black; 
-  margin-right: 20px; 
+  text-decoration: none;
+  color: black;
+  margin-right: 20px;
 }
 
 .helptext {
-  display: none; 
+  display: none;
 }
 
-.landing_grid{
-  display: grid; 
+.landing_grid {
+  display: grid;
   grid-template-rows: 3fr 2fr 3fr;
-  grid-template-columns: 100%; 
-  grid-template-areas: "landimage"
-                       "trending"
-                       "recentposts";
+  grid-template-columns: 100%;
+  grid-template-areas:
+    "landimage"
+    "trending"
+    "recentposts";
 }
 
-.landing_page_container{
-  grid-area: landimage; 
+.landing_page_container {
+  grid-area: landimage;
   width: 100%;
   height: 100%;
-  height:700px;
-  width:800px;
+  height: 700px;
+  width: 800px;
 }
 
-.landing_image{
+.landing_image {
   z-index: -1;
-  position: absolute; 
+  position: absolute;
   width: 100vw;
-  height: 100%; 
+  height: 50%;
+  display: block;
 }
 
-.home_header{
-  position:absolute;
+.home_header {
+  position: absolute;
   top: 25%;
   left: 31%;
-  color: rgb(244,57,57);
+  color: rgb(244, 57, 57);
 }
 
-.fas{
-  color: rgb(244,57,57); 
+.fas {
+  color: rgb(244, 57, 57);
 }
-.landing_search_form{
-  position:absolute;
+.landing_search_form {
+  position: absolute;
   top: 32%;
   left: 30%;
 }
 
-.landing_page_trending{
+.landing_page_trending {
   grid-area: trending;
-  background-color: rgb(245,245,245); 
-  width: 100vw; 
+  background-color: rgb(245, 245, 245);
+  width: 100vw;
   display: grid;
-  grid-template-rows: 1fr 3fr; 
+  grid-template-rows: 1fr 3fr;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "hothead hothead hothead"
-                          "hot1 hot2 hot3";
-  justify-items:center;
-  align-items:center; 
+  grid-template-areas:
+    "hothead hothead hothead"
+    "hot1 hot2 hot3";
+  justify-items: center;
+  align-items: center;
 }
 
-#hot-header{
-  grid-area:hothead;
+#hot-header {
+  grid-area: hothead;
   align-self: center;
   justify-self: center;
-  color: rgb(244,57,57);
+  color: rgb(244, 57, 57);
 }
 
-.hotimage img{
+.hotimage img {
   width: 300px;
-  height: 300px; 
+  height: 300px;
   display: inline-block;
 }
 
-.hot-1{
+.hot-1 {
   grid-area: hot1;
-  border: 2px solid black; 
+  border: 2px solid black;
 }
 
-
-.hot-2{
+.hot-2 {
   grid-area: hot2;
-  border: 2px solid black; 
+  border: 2px solid black;
 }
 
-.hot-3{
-  grid-area:hot3;
-  border: 2px solid black; 
+.hot-3 {
+  grid-area: hot3;
+  border: 2px solid black;
 }
 
-.image_title{
-  text-align: center; 
+.image_title {
+  text-align: center;
 }
 
-.image_title a{
-  text-decoration: none; 
+.image_title a {
+  text-decoration: none;
 }
 
 .image_title a:hover,
 .image_title h3:hover {
-  text-decoration:solid;
-  text-decoration-color:red;
+  text-decoration: solid;
+  text-decoration-color: red;
 }
 
-
-.landing_page_recentposts{
-  margin-top: 20px; 
-  display: grid; 
-  width: 100vw; 
+.landing_page_recentposts {
+  margin-top: 20px;
+  display: grid;
+  width: 100vw;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 3fr 3fr; 
-  grid-template-areas: "recenthead recenthead recenthead"
-                       "recentposts1 recentposts2 recentposts3"
-                       "recentposts4 recentposts5 recentposts6";
-  justify-items:center;
-  align-items:center; 
+  grid-template-rows: 1fr 3fr 3fr;
+  grid-template-areas:
+    "recenthead recenthead recenthead"
+    "recentposts1 recentposts2 recentposts3"
+    "recentposts4 recentposts5 recentposts6";
+  justify-items: center;
+  align-items: center;
 }
 
-.recent_header{
-  grid-area:recenthead;
+.recent_header {
+  grid-area: recenthead;
   align-self: center;
   justify-self: center;
-  color: rgb(244,57,57);
+  color: rgb(244, 57, 57);
 }
 
-.recentposts li{
-  list-style-type: none; 
+.recentposts li {
+  list-style-type: none;
 }
 
-.recentprofileimages{
+.recentprofileimages {
   width: 30px;
-  height: 30px; 
+  height: 30px;
 }
 
-.recentposts{
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+.recentposts {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  padding: 30px; 
+  padding: 30px;
   justify-self: center;
-  align-self: center; 
+  align-self: center;
   justify-content: center;
-  align-content: center; 
+  align-content: center;
 }
 
-.recentposts a{
-  text-decoration: none; 
+.recentposts a {
+  text-decoration: none;
 }
-.recentposts a:hover{
+.recentposts a:hover {
   text-decoration: underline;
-  color: blue; 
+  color: blue;
 }
-.recentposts:hover{
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.recent_title{
-  color: aqua; 
+.recentposts:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.landing_page_recentposts > .recentposts:nth-child(1){
+.recent_title {
+  color: aqua;
+}
+
+.landing_page_recentposts > .recentposts:nth-child(1) {
   grid-area: recentposts1;
 }
 
-.landing_page_recentposts > .recentposts:nth-child(1){
+.landing_page_recentposts > .recentposts:nth-child(1) {
   grid-area: recentposts2;
 }
 
-.landing_page_recentposts > .recentposts:nth-child(1){
+.landing_page_recentposts > .recentposts:nth-child(1) {
   grid-area: recentposts3;
 }
 
-.landing_page_recentposts > .recentposts:nth-child(1){
+.landing_page_recentposts > .recentposts:nth-child(1) {
   grid-area: recentposts4;
 }
 
-.landing_page_recentposts > .recentposts:nth-child(1){
+.landing_page_recentposts > .recentposts:nth-child(1) {
   grid-area: recentposts5;
 }
 
-.landing_page_recentposts > .recentposts:nth-child(1){
+.landing_page_recentposts > .recentposts:nth-child(1) {
   grid-area: recentposts6;
 }
 
 /* PROFILE */
-.profile_card{
+.profile_card {
   text-align: center;
   background: url("https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80");
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-size: 100%;
   width: 100vw;
-  height: 100vh; 
-  color:black;
+  height: 100vh;
+  color: black;
 }
 
-
-.card_info{
-  margin-top: 2%; 
+.card_info {
+  margin-top: 2%;
 }
 
-.card_info p{
+.card_info p {
   margin-top: 3%;
 }
 
-.profile_card form{
-  padding-top: 20px; 
+.profile_card form {
+  padding-top: 20px;
 }
 
 /* SEARCH */
 
-.search_results{
-  margin-top: 30px; 
-  margin-left: 20px; 
+.search_results {
+  margin-top: 30px;
+  margin-left: 20px;
 }
 
-.error_search{
+.error_search {
   background: url("https://images.unsplash.com/photo-1532003885409-ed84d334f6cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80");
-  width: 100vw; 
+  width: 100vw;
   height: 900px;
   background-repeat: no-repeat;
-  background-size: 100%; 
+  background-size: 100%;
   z-index: -1;
 }
 
-.success_search{
-  background-color: coral; 
+.success_search {
+  background-color: coral;
   height: 100vh;
 }
-.success_search a{
-  text-decoration:none; 
+.success_search a {
+  text-decoration: none;
 }
-.success_search a:hover{
+.success_search a:hover {
   text-decoration: underline;
-  color: blue; 
+  color: blue;
 }
 
 /* Location List */
 
-.location_list_head{
-  text-align: center; 
-  padding: 10px; 
-  margin-bottom: 20px; 
-  margin-top: 20px; 
+.location_list_head {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   width: 100vw;
 }
 
-.location_list_detail{
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+.location_list_detail {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  list-style-type: none; 
-  display: grid; 
+  list-style-type: none;
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(auto-fill, 1fr);
-  grid-row-gap: .5em;
-  grid-column-gap: 1em; 
-  width: 100vw; 
+  grid-row-gap: 0.5em;
+  grid-column-gap: 1em;
+  width: 100vw;
 }
 
-.list_image{
+.list_image {
   width: 50%;
   height: 50%;
 }
 
-.location_list_container{
-  margin: 10px; 
-  margin: auto; 
-  text-align: center; 
-  padding: 20px; 
+.location_list_container {
+  margin: 10px;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
 }
 
-.location_list_container a{
-  text-decoration: none; 
+.location_list_container a {
+  text-decoration: none;
   color: black;
 }
 
-.location_list_container a:hover{
-  text-decoration: underline; 
-  color: blue; 
+.location_list_container a:hover {
+  text-decoration: underline;
+  color: blue;
 }
-
 
 /* Location Detail */
 
-.foundlocationinfo_text{
-  width: 100vw; 
-  height: 50%; 
+.foundlocationinfo_text {
+  width: 100vw;
+  height: 50%;
 }
 
-.foundlocationinfo_text h1{
-  text-align: center; 
-  margin-top: 30px; 
-  margin-bottom: 30px; 
+.foundlocationinfo_text h1 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
-.foundlocationinfo_posts{
+.foundlocationinfo_posts {
   width: 100vw;
   height: 100%;
 }
 
-.foundimage{
-  width: 100vw;  
-  max-height: 600px; 
+.foundimage {
+  width: 100vw;
+  max-height: 600px;
 }
 
-.foundlocationinfo h2{
-  text-align: center; 
-  color: rgb(244,57,57);
-  margin-top: 20px; 
+.foundlocationinfo h2 {
+  text-align: center;
+  color: rgb(244, 57, 57);
+  margin-top: 20px;
 }
 
-.foundlocationinfo{
+.foundlocationinfo {
   width: 100vw;
 }
-.alltheposts{
-  margin-top:10px; 
+.alltheposts {
+  margin-top: 10px;
 }
 
-
-.postcreation{
-  text-align:center; 
-  margin-top: 20px; 
+.postcreation {
+  text-align: center;
+  margin-top: 20px;
 }
 
-
-.userpost{
+.userpost {
   width: 70%;
-  height: 33%; 
+  height: 33%;
   justify-content: center;
   align-content: center;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  padding: 60px; 
-  text-align: center; 
-  margin: 20px; 
+  padding: 60px;
+  text-align: center;
+  margin: 20px;
 }
 
-.alltheposts{
-  display: grid; 
+.alltheposts {
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr); 
-  list-style-type: none; 
+  grid-template-rows: repeat(3, 1fr);
+  list-style-type: none;
   align-content: center;
-  justify-content: center; 
+  justify-content: center;
 }
 
-.posterimage{
+.posterimage {
   width: 30px;
-  height: 30px; 
+  height: 30px;
 }
