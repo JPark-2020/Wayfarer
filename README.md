@@ -22,3 +22,25 @@
 11. Users can view a list of posts for that city and filter 
 12. Users can create posts for cities as well as edit, delete, and update posts 
 
+
+## Screenshots 
+
+
+### Home Page 
+
+![HOME](./static/images/web1.png)
+
+### Search Success + Failure 
+
+![SEARCH](./static/images/search1.png)
+![BAD SEARCH](./static/images/search2.png)
+
+
+### Profile Page
+
+![PROFILE](./static/images/profilepage.png)
+
+### Location Pages
+
+![LOCATIONLIST](./static/images/locationlist.png)
+![LOCATIONDETAIL](./static/images/locationdetail.png)
